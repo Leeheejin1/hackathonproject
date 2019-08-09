@@ -135,3 +135,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 추가 chanho - 19_8_1_19:45
 MEDIA_URL = '/media/' # 추가 chanho - 19_8_1_19:45
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
